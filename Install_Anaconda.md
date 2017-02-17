@@ -4,6 +4,7 @@
 Easiest way to get setup for using Python and the various tools is using [Anaconda](https://www.continuum.io/), which is an open data science platform 
 
 *   Go to https://www.continuum.io/downloads and find correct install package for your operating system. Recommend using Python 3.6, and pick the appropriate architecture (32bit or 64bit).
+    - You can ignore the downloading of the cheat sheet, I have included it in the workshop materials. 
     - Install as per the instructions on the download page.
     - Let it install to your home directory (if asked).
     - If asked, choose to install for *Just You* so you don't run into admin issues.
@@ -38,7 +39,11 @@ First, for Windows users (For Linux or MAC users, open terminal), you should hav
 > conda --help
 ```
 
+In the workshop materials (see below for download instructions), there is a `condo` cheat sheet. This will have much more advanced usage examples.
 
+
+
+## Download Workshop Materials
 
 Once the installation is complete, download the workshop materials (if you haven't already) and download the sample imagery.
 
@@ -46,7 +51,23 @@ Once the installation is complete, download the workshop materials (if you haven
   * There is a green button near the top left `clone or download` (if you are a git user, feel free to clone), click this and select *Download ZIP*
   * Save the ZIP to your home folder `C:\\Users\<username>` and extract it there. 
   * From the Anaconda Prompt, change directories: `> cd python_gdal_workshop`.
-  * ​
+
+* To Download the sample images, we will use Landsat that is hosted by AWS at [landsatonaws.com](https://landsatonaws.com/)
+
+  * To find images on this website, you need to know the path and row for the image you want. 
+  * Make a directory for the image files, `> mkdir ls8`, then move into that directory `> cd ls8`.
+  * Go to https://landsatonaws.com/L8/048/023/LC80480232014249LGN00
+  * For this workshop, we don't need all the bands, so download the following bands to the `C:\\Users\<username>\python_gdal_workshop\ls8\` directory. 
+    * LC80480232014249LGN00_B2.TIF - Blue Band
+    * LC80480232014249LGN00_B3.TIF - Green Band
+    * LC80480232014249LGN00_B4.TIF - Red Band
+    * LC80480232014249LGN00_B5.TIF - NIR Band
+    * LC80480232014249LGN00_B6.TIF - SWIR-1 Band
+    * LC80480232014249LGN00_B8.TIF - Pan Band (Maybe??)
+
+* Move back to the project folder `> cd ../ `.
+
+  ​
 
 
 
