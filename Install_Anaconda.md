@@ -10,7 +10,7 @@ Easiest way to get setup for using Python and the various tools is using [Anacon
     - If asked, choose to install for *Just You* so you don't run into admin issues.
     - Select yes for adding Anaconda to your path.
 
-    ![env_python](/Users/michaelconnor/Documents/SparkGeo/projects/python_gdal_workshop/images/env_python.PNG)
+    ![env_python](images/env_python.PNG)
 
 
 
