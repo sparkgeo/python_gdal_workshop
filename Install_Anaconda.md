@@ -64,6 +64,7 @@ Once the installation is complete, download the workshop materials (if you haven
     * LC80480232014249LGN00_B5.TIF - NIR Band
     * LC80480232014249LGN00_B6.TIF - SWIR-1 Band
     * LC80480232014249LGN00_B8.TIF - Pan Band (Maybe??)
+    * LC80480232014249LGN00_MTL.txt
 
 * Move back to the project folder `> cd ../ `.
 
@@ -90,7 +91,7 @@ You should be taken to your default browser and see a list of files in the direc
 
 
 
-Open the `g432_obia.ipynb` notebook from here.
+Open the `Intro to Python.ipynb` notebook from here.
 
 
 
