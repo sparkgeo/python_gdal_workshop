@@ -7,7 +7,7 @@ Easiest way to get setup for using Python and the various tools is using [Anacon
     - You can ignore the downloading of the cheat sheet, I have included it in the workshop materials. 
     - Install as per the instructions on the download page.
     - Let it install to your home directory (if asked).
-    - If asked, choose to install for *Just You* so you don't run into admin issues.
+    - If asked, choose to install for *Just You* so you don't run into admin issues (Windows).
     - Select yes for adding Anaconda to your path.
 
     ![env_python](images/env_python.PNG)
@@ -17,7 +17,7 @@ Easiest way to get setup for using Python and the various tools is using [Anacon
 
 ## Anaconda Configuration
 
-The Anaconda environment is made up of various packages. At times, you may need to install a package, or upgrade a package, or remove a package. All these task are done from the Anaconda prompt, using the `condo` command line interface. For our work, we will need GDAL which is missing from the Anaconda distribution. So let's install it.
+The Anaconda environment is made up of various packages. At times, you may need to install a package, or upgrade a package, or remove a package. All these task are done from the Anaconda prompt, using the `conda` command line interface. For our work, we will need GDAL which is missing from the Anaconda distribution. So let's install it.
 
 
 
