@@ -27,6 +27,15 @@ First, for Windows users (For Linux or MAC users, open terminal), you should hav
 # List all the installed packages
 > conda list
 
+# Create a new virtual environment
+> conda create -n workshop python=3.5 anaconda
+
+# It will ask you to confirm the install: ([y]/n) -> type y and enter.
+# This may take some time...
+
+# When it is done, the env needs to be activated
+> source activate workshop
+
 # Install GDAL
 > conda install gdal
 

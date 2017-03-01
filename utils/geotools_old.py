@@ -24,9 +24,9 @@ def image_io(rasterin, out_string):
         filename (str): absolute or relative path to image.
 
     Returns:
-        GDALRaster: GDAL RAster object.
+        GDALRaster: GDAL Raster object.
     """
-    
+
 
     """
     repeated housekeeping jobs:
@@ -232,7 +232,16 @@ def array_to_pan(filename, outname, array, dataType=None):
     return
 
 
-def arrays_to_RGB(filename, outname, bandR, bandG, bandB, dataType=None):
+def arrays_to_RGB(outname, bandR, bandG, bandB, dataType=None):
+    """Creates an RGB Raster from seperate bands
+
+    Args:
+        outname (string): The filename for the output raster.
+        bandR (GDALRaster): raster object for the red band
+
+    Returns:
+        str:
+    """
     """
     turn an array into a RGB (three band) Geotiff image
     input:
@@ -285,7 +294,7 @@ def arrays_to_RGB(filename, outname, bandR, bandG, bandB, dataType=None):
     Green.WriteArray(bandG)
     Blue.WriteArray(bandB)
 
-    return
+    return fout
 
 
 def get_landsat_bands(ds, bands='123457'):
@@ -571,7 +580,7 @@ def root(array):
     output: processed array
     interacts with: enhance
     """
-    array = 255.0 * Numeric.sqrt(array / 255.0)
+    array = 255.0 * math.sqrt(array / 255.0)
 
     return array
 
