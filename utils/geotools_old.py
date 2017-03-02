@@ -580,7 +580,7 @@ def root(array):
     output: processed array
     interacts with: enhance
     """
-    array = 255.0 * math.sqrt(array / 255.0)
+    array = 255.0 * Numeric.sqrt(array / 255.0)
 
     return array
 
