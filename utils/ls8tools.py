@@ -1,4 +1,8 @@
+"""Helper tools for Remote Sensing Workshop, specifically for Landsat 8 datasets.
+"""
+
 import os
+import sys
 import subprocess
 import numpy as np
 import gdal
@@ -15,9 +19,7 @@ def show(bands, enhance=None, cmap=None):
     """Read as arrays, stack, and show using matplotlib.
 
     Args:
-        red (GDALRaster): the band show as red.
-        green (GDALRaster): the band show as green.
-        blue (GDALRaster): the band show as blue.
+        bands (GDALDataset): either a list of datasets or a single dataset.
 
     Returns: None, shows image with matplotlib.
     """
@@ -36,7 +38,6 @@ def show(bands, enhance=None, cmap=None):
             exposure.equalize_adapthist,
             exposure.adjust_log,
             exposure.rescale_intensity,
-
         ]
     else:
         for e in enhance:
@@ -89,7 +90,7 @@ def get_colormap(num):
 
 
 def subset_raster(ds, projwin, outname=None):
-    """Subset the dataset by the proj window
+    """Subset the dataset by the proj window.
 
     Args:
         ds (GDALDataset): The dataset to subset
@@ -137,9 +138,14 @@ def pansharpen(ms_dss, pan_ds, outname=None):
     if os.path.exists(outname):
         return gdal.Open(outname)
 
-    command = [
-        'gdal_pansharpen.py', pan_file
-    ]
+    if 'win' in sys.platform:
+        gdal_pan_cmd = os.path.join(os.path.dirname(sys.path[1]), 'Scripts', 'gdal_pansharpen.py')
+    else:
+        gdal_pan_cmd = 'gdal_pansharpen.py'
+
+    command = [
+        'python', gdal_pan_cmd, pan_file
+    ]
 
     for ds in ms_dss:
         ms_file = get_band_filename(ds.GetFileList())
@@ -152,6 +158,15 @@ def pansharpen(ms_dss, pan_ds, outname=None):
 
 
 def gen_output_name(input_name, postfix):
+    """Generates an output file path with the same name and extension.
+
+    Args:
+        input_name (string): path of the input image
+        postfix (str): The postfix to add to the output filename
+
+    Returns:
+        str: output filename
+    """
     image_dir, image_name = os.path.split(input_name)
     root_name, extension = os.path.splitext(image_name)
     new_image_name = '%(path)s_%(postfix)s%(ext)s' % {
@@ -225,7 +240,7 @@ def ndvi(red_ds, nir_ds, outname=None):
 
 
 def kmeans(bands, n_clusters=8, max_iter=10, outname=None):
-    """Perform KMeans clustering on input dataset
+    """Perform KMeans clustering on input dataset.
         http://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html
         http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans
 
