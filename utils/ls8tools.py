@@ -139,7 +139,7 @@ def pansharpen(ms_dss, pan_ds, outname=None):
         return gdal.Open(outname)
 
     if 'win' in sys.platform:
-        cammand = ['python', os.path.join(os.path.dirname(sys.path[1]), 'Scripts', 'gdal_pansharpen.py'), pan_file]
+        command = ['python', os.path.join(os.path.dirname(sys.path[1]), 'Scripts', 'gdal_pansharpen.py'), pan_file]
     else:
         command = ['gdal_pansharpen.py', pan_file]
 
